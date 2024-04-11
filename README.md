@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Custom Dropdown React Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Dropdown component for selecting options from a list.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+You can install the Dropdown component via npm:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install react-dropdown-metsel
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+```javascript
+import Dropdown from 'react-dropdown-metsel';
+import 'react-dropdown-metsel/dist/index.css'; 
+// import your styles
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function MyComponent() {
+    const options = ['Option 1', 'Option 2', 'Option 3'];
 
-### `npm run build`
+    const handleChange = (selectedOption) => {
+        console.log('Selected option:', selectedOption);
+    };
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    return (
+        <Dropdown
+            label="Select an option"
+            options={options}
+            onChange={handleChange}
+            customStyles={{
+                dropdown: { /* Custom styles */ } || 'class-css' || styles.classCssModule,
+                dropdownSelect: { /* Custom styles */ } || 'class-css' || styles.classCssModule,
+                dropdownIcon: { /* Custom styles */ } || 'class-css' || styles.classCssModule,
+                dropdownOptions: { /* Custom styles */ } || 'class-css' || styles.classCssModule,
+                dropdownOption: { /* Custom styles */ } || 'class-css' || styles.classCssModule
+            }}
+        />
+    );
+}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Props
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `label`: The label for the dropdown.
+- `options`: An array of strings representing the options to be displayed in the dropdown.
+- `onChange`: A function to be called when an option is selected. Receives the selected option as an argument.
+- `customStyles`: Custom styles for the dropdown.
 
-### `npm run eject`
+## Custom Styles
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The `customStyles` object allows customizing the appearance of the Dropdown by providing CSS styles for different elements. It can contain the following properties:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `dropdown`: Style applied to the main container of the Dropdown.
+- `dropdownSelect`: Style applied to the selectable part of the Dropdown.
+- `dropdownIcon`: Style applied to the angle icon of the Dropdown.
+- `dropdownOptions`: Style applied to the dropdown list of options.
+- `dropdownOption`: Style applied to each individual option in the dropdown list.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Example
 
-## Learn More
+```javascript
+<Dropdown
+  label='Select a state'
+  options={['Paris', 'Nantes', 'Madrid']}
+  onChange={(selectedOption) => console.log('Selected state:', selectedOption)}
+  customStyles={{
+    dropdown: { width: '200px' },
+    dropdownIcon: 'myClassName',
+    dropdownSelect: styles.myClassName /* Using css module */
+  }}
+/>
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- react
+- react-dom
+- react-icons
+- prop-types
