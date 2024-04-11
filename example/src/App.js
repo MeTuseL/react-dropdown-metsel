@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Dropdown from 'react-dropdown-mtusel'
-import 'react-dropdown-mtusel/dist/index.css'
+import Dropdown from 'react-dropdown-metsel'
+import 'react-dropdown-metsel/dist/index.css'
 
 const App = () => {
   const [state, setState] = useState('France')
